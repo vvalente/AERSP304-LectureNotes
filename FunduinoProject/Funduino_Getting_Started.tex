@@ -1,0 +1,133 @@
+\input{../common/notes_preamble.tex}
+% !TEX root = Funduino_Getting_Started.tex
+
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+\usepackage{titling}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry} % Adjust the margin as needed
+\pagenumbering{gobble}
+
+\setlength{\droptitle}{-4cm} % Adjust the value as needed
+\title{AERSP304 Funduino Project\\ Getting Started Guide}
+\author{Spring 2026}
+\date{Due: Date}
+
+\begin{document}
+\maketitle
+% Start here
+
+\section*{Required Materials}
+Materials listed below are required to complete the project. One can try not to use the H-bridge and power supply by using a 5V DC Motor and connect it directly to the Arduino Board. In that case the board could be damaged depending on how this connection is made. The safest way is to use the H-Bridge and Power Supply even though the DC Motor is not 12V.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 1pt}
+	\item Wires
+	\item Arduino Board (Mega 2560 suggested)
+	\item 12V DC Motor
+	\item H Bridge
+	\item Power supply and plug
+\end{itemize}
+
+\section*{Additional Materials}
+Additional material that could be useful
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 1pt}
+	\item Breadboard
+	\item Screwdriver set
+	\item Multimeter
+\end{itemize}
+
+
+\textcolor{red}{Before going through these components, please be mindful about the expected delivery date as depending on the seller it may take a couple of months to arrive.}
+
+\textcolor{red}{For each of the compoments and materials listed above, a few references will be provided. These references are not mandatory, and you can use any other similar product. The references are just suggestions to help you get started quickly.}
+
+\section*{References Material}
+\subsection*{Electronic Kit}
+You might be able to find these items for cheaper on different sites. However, for the sake of shipping quickly, I would suggest using Amazon. As a result, I will primarily give Amazon links.
+\\
+
+A set of wires will be needed for this project. The set in the link below has 40 male male, 40 female male, and 40 female female. This one kit could supply 5+ groups. A small breadboard might also be useful for prototyping and checking connections.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 1pt}
+	  \item \href{https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/ref=sr_1_3?crid=2SGLTWLUYEOKJ&dib=eyJ2IjoiMSJ9.tjHxIQLJsk16_0YVtUGN6c7UY3ZsNAzwegs2nnwuY3QGfAf_2KcjXo9ROFkGCOp8DT0iUmOMy_EC5CWi4uWOUGoTaIkoV8RqAZx2ULcxvhE0MecpgTlKX0yKewhEso_W2nATLxvAzodC3zhNjOVSK9i51gmVaU8NeZ3YuvJTT6TqqTdM5_Az6uFLOc7BxnAmT-mSjk_Uuq_KxCreZpwz6Sos2cSynweUSciDQAqINTE.MUoTDl2IT0RoUf4i1HxlDbiyy5xhr8V8riXapmnzguE&dib_tag=se&keywords=breadboard+wires&qid=1736795052&sprefix=breadboard+wires%2Caps%2C99&sr=8-3}{ELEGOO 120pcs Multicolored Dupont Wire - Amazon}
+    \item \href{https://www.amazon.com/ELEGOO-Breadboard-Solderless-Breadboards-Electronics/dp/B0CYPVMK9J/ref=sr_1_3?crid=2UKF0O4NSDMH5&dib=eyJ2IjoiMSJ9.kysEkFuknSsx6HNYYlrkwUZtHhv3K64sZBtoqKn0u4DHY0kiwlGf0HnaH4kZXf43odb3FtXK94rZTo6ODIS-pBIT6h8LVgqf61nfE70Ga9XW4miFLF3CdERdn18GnOOKQwsc45qyFZ8pb0gLDXQ1qHraE09x22w88hdUghAaYdvDqrBwr-ecyKgj2Z7YPXK33z51ndaqmPTszB8yJKSTWq9luGKYJhVlq7n-dmTskQM.wbdJYdACAvZhRzO8gy3H8AZaDf8tVNgHb15EuDmwXQA&dib_tag=se&keywords=small+breadboard&qid=1736816054&sprefix=small+breadboard%2Caps%2C110&sr=8-3}{ELEGOO 6PCS 400 Point Breadboard 6 pcs - Amazon}
+\end{itemize}
+
+\noindent
+\subsection*{Arduino Mega}
+Arduino Mega 2560 Rev3 Board. In order to program the Arduino, it is essential to have a compatible USB cable, so if you don't have one, make sure to buy one.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 1pt}
+	  \item \href{https://www.amazon.com/ARDUINO-MEGA-2560-REV3-A000067/dp/B0046AMGW0/ref=sr_1_1_pp?crid=1S9Y8OFVSRQZW&dib=eyJ2IjoiMSJ9.mz1D_mMr7EDgH2SXGDwsrRbJvYPbOFwRzBOIdUhhE1M8nheTVTGJOnG6WshPE-p7dLFUEM4leVXzMXqtX2tRjoyIOjP7tinrd9yeNAghZB6d8D_STEybu1Uim4qRROW2t6iIFcx_rwtaYZFOgv-hqi_m6YS35FCT8Hmi_9w2h42E_nwtKo1j-1ScHrr-i4T0-FYPaxf5jQyqmbjuNfmuUIT2K1-ZHzj3JhSG8SWiE9U.wxNBW3v-c5AC-kst8kuf_AdzZfGlA1MNnDxFNDDnPDg&dib_tag=se&keywords=arduino+Mega&qid=1736795305&sprefix=arduino+mega%2Caps%2C102&sr=8-1}{Arduino MEGA Rev3 Original - Amazon}
+    \item \href{https://www.amazon.com/Monoprice-USB-Male-USB-B-Cable/dp/B009GUVZOK/ref=sr_1_4?crid=2IDALR27UOE65&dib=eyJ2IjoiMSJ9.hoPKoEYfF09d0-oB9IMCLdireURDs2HzGwAQdeG2LUn5mOsYQ8DSN4hG7Y3-oC9eHbBjyj_fL87-9e-OA-E4Ze1wz6PY7ALDt2MyxfwTVJ7YakjiT-RFaX52_GzVoXdOuux1SA4vCAZeswFXa84nX6uhPvYk0rPONWj_nxFLtYVDz3IFvCLi1E50x-h025NHKVxossxtLeG8A1omNB9iFhqKUiPsmMuWanqaSfRDSHMSbZuDjAQwss1IKE1i5NoDr6NJlcQwB8c4Ww3BjRzltcaQKM350opcsKSLH3_u6vJytHNSMeWns-CzdeXYiJSNtEW7kJ864_YxH5vNnB5TdPqkoqqsPRuoe9tSCbeoKFc.YvvVCzZaUbikGIyO4PjpEKyV4Y-T9cYYXqFAsglIomg&dib_tag=se&keywords=USB-A%2Bto%2BUSB-B%2B2.0&qid=1736817410&s=electronics&sprefix=usb-a%2Bto%2Busb-b%2B2.0%2Celectronics%2C78&sr=1-4&th=1}{USB Cable - Amazon}
+
+\end{itemize}
+\noindent
+\subsection*{DC Motor}
+Your motor is preferred to work with voltages between 6V and 12V and something between 150 RPM and 800 RPM. \textbf{Your motor needs to have an encoder attached}. It would be preferred to use DC-geared motors instead of those without a gearbox. All the motors in the references below have an encoder already mounted.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 1pt}
+    \item \href{https://www.amazon.com/dp/B07GNDG2NC?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1}{12V DC High Speed 600RPM - Amazon} I personally used this one.
+	\item \href{https://www.pololu.com/product/4863}{12V DC Motor 370 RPM - Pololu} There are several other options in that website. Just scroll down to the table in this page.
+\end{itemize}
+\noindent
+\subsection*{H Bridge}
+In order to control the motor, you will need a H bridge. As long as the motor will be running with no load, any option starting from 2A will work. Please be advised that you must match your DC Motor drain current with your H bridge. L293 chip will probably not be enough for most of the motors in the reference above. L298, on the other hand, should work fine.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 1pt}
+    \item \href{https://www.amazon.com/BOJACK-H-Bridge-Controller-Intelligent-Mega2560/dp/B0C5JCF5RS/ref=sr_1_1_sspa?crid=1SR0A8CI42376&dib=eyJ2IjoiMSJ9.hmmUOUm4v54ifq_5n5ZXVudHCd6gOJ-uE8Gxisi1zScZuYlX86-S8TkYuG7g3ZNSdQYcW6PeKFdiRDeOQMMnZaJVzY5UiVNF8zbdU-nG_bVqYGA-wUGweG7zWjMGNq2550HOHTVmipaccXJAlj05OLVKwjvWtqW2S0BVadfw2TGTvBiX6CsIPewcw3BiAD24GasBBeg5E4_6rWK82OWUBkSZjOKEAX0mO-GaO66vm5KRj4z2TaCGmBf-CriQVArv8Ozuw5NwujxWrJAGjW4HlwtoafLJvTEr1PXFCkIcedo.9nmKG3LVlpUqF0cQ_YI-n_gsrDe5_62y8jY8gV_EhKU&dib_tag=se&keywords=L298N&qid=1736817874&s=electronics&sprefix=l298n+%2Celectronics%2C127&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1}{L298N 2A 4 Piece- AMAZON - \$9.99} This is four H bridges, talk amongst yourselves if you want to split this up.
+	\item \href{https://www.amazon.com/Diymall-Module-Stepper-Modules-Arduino/dp/B00NJOTBOK/ref=sr_1_1?keywords=L298&qid=1579043078&s=electronics&sr=1-1}{L298N 2A - AMAZON - \$6.50} This is just a single module of the above
+\end{itemize}
+\noindent
+\subsection*{Power Source}
+You will need a power source for your motor (the Arduino board would/could be powered by a USB cable connected to your computer). You could have a LiPo battery to power everything, but at some point, you will probably need a charger for that. I would recommend a power supply with an AC to DC transformer. If you are considering a LiPo battery, make sure to match its voltage so that you don't exceed the motor's maximum allowed voltage. For 6V DC motors, a 2S battery (2x4.2V = 8.4V) should work. For a 12V DC motor, there will be needed a 3S battery (3x4.2V = 12.6V). The power supply should have at least a 2A output. That green plug in the option below is also a good call. It will help to keep things safe. If you want to buy the plug and the power supply separately just make sure that the size of the plug from power supply matches the input of the plug.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 1pt}
+	\item \href{https://www.amazon.com/dp/B08FJ7KT4X?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1}{AC 100-240 DC 12V 2A - AMAZON - \$12.99}
+\end{itemize}
+\noindent
+\subsection*{Other Parts}
+I would recommend a screwdriver set if you don't have one. It will be very helpful. The screws in the H bridge are very small, so a normal screwdriver might not work. You can look for some cheap options. I would also recommend a multimeter. Even the most simple one you can find would work for this project. A multimeter is very useful for troubleshooting.
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 1pt}
+	\item \href {https://www.amazon.com/Screwdriver-Different-Flathead-Screwdrivers-Precision/dp/B08B87RQJ9/ref=sr_1_3_sspa?crid=YM6NASV4XDDZ&dib=eyJ2IjoiMSJ9.DJOsdYn9Lt9SZjf6BM0czRPnC9JMd1ciBkZUz-XnywoXWrbHdg7Y8rXtvVv9ebmGv7HwYfO0L7h96wMl54DK3flb85xDF5y2T1ChVIarM_DhksI_LoVZMXF0GRuJuBaCN1VyIn2xEOYcUHMfR7KztaC2XtRJeyMEaIR3z_FuzdXH8aovAA_KUTdb5IeOTVJTL7nKA224xbXV9PASggEbCOYeqIlNBQrYaf3_eMMkebNXe0cEgzD8n76JgZL15itZ9jaVfVQamTw_KDgWk-OQEspK2B9M3us-WRFA5r5ZHv4.AKuJkFYeaYgc_RHQXZ2YfgroUXPFT1ZY6LSry4WfziM&dib_tag=se&keywords=small\%2Bscrewdriver\%2Bset&qid=1736815478&sprefix=small\%2Bscrew\%2Caps\%2C99&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1}{6 pcs Mini Screwdriver Set - AMAZON - \$6.99}
+	\item \href{https://www.amazon.com/AstroAI-Digital-Multimeter-Voltage-Tester/dp/B01ISAMUA6/ref=sr_1_4?keywords=multimeter&qid=1579044709&sr=8-4}{3 1/2 digits Multimeter - AMAZON - \$9.89}
+\end{itemize}
+
+\section*{How to Get Started}
+\begin{itemize}
+	\setlength{\parskip}{0pt}
+	\setlength{\itemsep}{0pt plus 1pt}
+	\item Purchase materials listed above;
+	\item \href{https://www.arduino.cc/en/software}{Download Arduino IDE Software;}
+	\item Connect Arduino via USB cable to the computer with the correct software;
+	\item Use the guide listed in the references to get connected and get started with the Arduino software;
+\end{itemize}
+
+\section*{References Tutorial}
+\begin{itemize}
+  \setlength{\parskip}{0pt}
+    \setlength{\itemsep}{0pt plus 1pt}
+    \item YOUTUBE TUTORIALS!!!
+    \item Arduino IDE Download: \href{https://www.arduino.cc/en/main/software}{https://www.arduino.cc/en/main/software}
+    \item Get Started Guide: \href{https://www.arduino.cc/en/Guide/ArduinoMega2560}{https://www.arduino.cc/en/Guide/ArduinoMega2560}
+    \item \href{https://www.allaboutcircuits.com/projects/use-an-arduino-to-control-a-motor/}{https://www.allaboutcircuits.com/projects/use-an-arduino-to-control-a-motor/}
+    \item \href{https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/}{https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/}
+    \item \href{http://andrewjkramer.net/motor-encoders-arduino/}{http://andrewjkramer.net/motor-encoders-arduino/}
+    \item \href{https://tutorial.cytron.io/2016/04/04/arduino-2a-motor-shield-encoder-motor/}{https://tutorial.cytron.io/2016/04/04/arduino-2a-motor-shield-encoder-motor/}
+    \item You can also use MATLAB to code with the Arduino if you prefer, but it is not required: \href{https://www.mathworks.com/discovery/arduino-programming-matlab-simulink.html}{https://www.mathworks.com/discovery/arduino-programming-matlab-simulink.html}
+
+\end{itemize}
+
+% End here
+\end{document}
