@@ -1,0 +1,41 @@
+\input{../common/notes_presentation.tex}
+% !TEX root = LectureBaseSlides.tex
+\usepackage{pgfpages}
+\usepackage[absolute,overlay]{textpos}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta, positioning}
+
+% For printing purposes, 2 slides per page with borders
+\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+
+% Title Page Information
+\title[Title]{Title}
+\subtitle{Course}
+\author[V. T. Valente]{V.T. Valente}
+\institute[Penn State University]{Penn State University}
+\date{Date}
+
+\begin{document}
+
+{
+%\setbeamertemplate{footline}[text line]{\parbox{\linewidth}{\vspace*{-8pt}Some material in this presentation has been adapted from slides developed by Dr. Joe Horn.}}
+%\frame{\titlepage}
+}
+
+% Goals Slide
+\begin{frame}{Goals for Today}
+    \small
+
+\end{frame}
+
+\begin{frame}[t]{Something aligned at the top}
+    \small
+\end{frame}
+
+
+\end{document}

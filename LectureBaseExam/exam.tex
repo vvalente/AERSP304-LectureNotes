@@ -1,0 +1,60 @@
+\input{../common/notes_preamble.tex}
+% !TEX root = exam.tex
+
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\title{Title}
+\author{}
+\date{date}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+% First page
+{
+	\center{100 points maximum (points are listed for each problem)}\\
+	\center{\textbf{Closed book / Closed notes / No computer access}}\\
+}
+
+\vspace{4cm}
+
+{
+	\center{\textbf{Name:} }\\
+	\center{\textbf{PSU ID (abc1234):} }\\
+}
+
+\vspace{2cm}
+{
+	\center{The exam has 8 problems on 6 pages.}\\
+	\vspace{2cm}
+	\center{Good luck!}\\
+}
+
+\newpage
+
+% Subsequent pages
+\small
+\printnotes
+
+\begin{enumerate}
+	% Problem 1
+  \item Some statement
+    \begin{mynotes}
+      \begin{enumerate}
+        \item solution
+      \end{enumerate}
+    \end{mynotes}
+
+  % Problem 2
+  \item Some statement
+
+    \begin{mynotes}
+      Solution
+    \end{mynotes}
+
+
+\end{enumerate}
+
+\end{document}

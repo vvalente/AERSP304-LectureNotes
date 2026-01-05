@@ -1,0 +1,21 @@
+.DS_Store
+
+# macOS system files
+.DS_Store
+
+# Latex files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.toc
+*.cls
+*.synctex.gz
+
+# Build directories
+build/
+.venv/
