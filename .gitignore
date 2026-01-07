@@ -19,3 +19,5 @@
 # Build directories
 build/
 .venv/
+*.snm
+*.nav
