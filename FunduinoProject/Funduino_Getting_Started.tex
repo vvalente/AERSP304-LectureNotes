@@ -12,11 +12,13 @@
 \setlength{\droptitle}{-4cm} % Adjust the value as needed
 \title{AERSP304 Funduino Project\\ Getting Started Guide}
 \author{Spring 2026}
-\date{Due: Date}
+\date{}
 
 \begin{document}
 \maketitle
 % Start here
+
+\textcolor{red}{A few references will be provided for each of the compoments and materials listed below. These references are not mandatory, and you can use any other similar product. The references are just suggestions to help you get started quickly.}
 
 \section*{Required Materials}
 Materials listed below are required to complete the project. One can try not to use the H-bridge and power supply by using a 5V DC Motor and connect it directly to the Arduino Board. In that case the board could be damaged depending on how this connection is made. The safest way is to use the H-Bridge and Power Supply even though the DC Motor is not 12V.
@@ -24,7 +26,7 @@ Materials listed below are required to complete the project. One can try not to 
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt plus 1pt}
 	\item Wires
-	\item Arduino Board (Mega 2560 suggested)
+	\item Microcontroller Board (Arduino Mega 2560 or better suggested)
 	\item 12V DC Motor
 	\item H Bridge
 	\item Power supply and plug
@@ -40,12 +42,9 @@ Additional material that could be useful
 	\item Multimeter
 \end{itemize}
 
-
-\textcolor{red}{Before going through these components, please be mindful about the expected delivery date as depending on the seller it may take a couple of months to arrive.}
-
-\textcolor{red}{For each of the compoments and materials listed above, a few references will be provided. These references are not mandatory, and you can use any other similar product. The references are just suggestions to help you get started quickly.}
-
 \section*{References Material}
+\textcolor{red}{Before going through these components, please be mindful about the expected delivery date when ordering, as depending on the seller it may take a couple of months to arrive.}
+
 \subsection*{Electronic Kit}
 You might be able to find these items for cheaper on different sites. However, for the sake of shipping quickly, I would suggest using Amazon. As a result, I will primarily give Amazon links.
 \\
@@ -59,15 +58,23 @@ A set of wires will be needed for this project. The set in the link below has 40
 \end{itemize}
 
 \noindent
-\subsection*{Arduino Mega}
-Arduino Mega 2560 Rev3 Board. In order to program the Arduino, it is essential to have a compatible USB cable, so if you don't have one, make sure to buy one.
+\subsection*{Microcontroller Board}
+Arduino Mega 2560 Rev3 Board is one recommended. In order to program the Arduino, it is essential to have a compatible USB cable, so if you don't have one, make sure to buy one.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt plus 1pt}
 	  \item \href{https://www.amazon.com/ARDUINO-MEGA-2560-REV3-A000067/dp/B0046AMGW0/ref=sr_1_1_pp?crid=1S9Y8OFVSRQZW&dib=eyJ2IjoiMSJ9.mz1D_mMr7EDgH2SXGDwsrRbJvYPbOFwRzBOIdUhhE1M8nheTVTGJOnG6WshPE-p7dLFUEM4leVXzMXqtX2tRjoyIOjP7tinrd9yeNAghZB6d8D_STEybu1Uim4qRROW2t6iIFcx_rwtaYZFOgv-hqi_m6YS35FCT8Hmi_9w2h42E_nwtKo1j-1ScHrr-i4T0-FYPaxf5jQyqmbjuNfmuUIT2K1-ZHzj3JhSG8SWiE9U.wxNBW3v-c5AC-kst8kuf_AdzZfGlA1MNnDxFNDDnPDg&dib_tag=se&keywords=arduino+Mega&qid=1736795305&sprefix=arduino+mega%2Caps%2C102&sr=8-1}{Arduino MEGA Rev3 Original - Amazon}
     \item \href{https://www.amazon.com/Monoprice-USB-Male-USB-B-Cable/dp/B009GUVZOK/ref=sr_1_4?crid=2IDALR27UOE65&dib=eyJ2IjoiMSJ9.hoPKoEYfF09d0-oB9IMCLdireURDs2HzGwAQdeG2LUn5mOsYQ8DSN4hG7Y3-oC9eHbBjyj_fL87-9e-OA-E4Ze1wz6PY7ALDt2MyxfwTVJ7YakjiT-RFaX52_GzVoXdOuux1SA4vCAZeswFXa84nX6uhPvYk0rPONWj_nxFLtYVDz3IFvCLi1E50x-h025NHKVxossxtLeG8A1omNB9iFhqKUiPsmMuWanqaSfRDSHMSbZuDjAQwss1IKE1i5NoDr6NJlcQwB8c4Ww3BjRzltcaQKM350opcsKSLH3_u6vJytHNSMeWns-CzdeXYiJSNtEW7kJ864_YxH5vNnB5TdPqkoqqsPRuoe9tSCbeoKFc.YvvVCzZaUbikGIyO4PjpEKyV4Y-T9cYYXqFAsglIomg&dib_tag=se&keywords=USB-A%2Bto%2BUSB-B%2B2.0&qid=1736817410&s=electronics&sprefix=usb-a%2Bto%2Busb-b%2B2.0%2Celectronics%2C78&sr=1-4&th=1}{USB Cable - Amazon}
+	\end{itemize}
 
-\end{itemize}
+	Another possible board is the Teensy 4.1. It has a faster processor and more memory. The programming environment is also very similar to the Arduino IDE.
+	\begin{itemize}
+		\setlength{\parskip}{0pt}
+		\setlength{\itemsep}{0pt plus 1pt}
+		\item \href{https://www.pjrc.com/store/teensy41.html}{Teensy 4.1 - PJRC Official Store}
+	\end{itemize}
+
+	In selecting any other microcontroller board, be mindful of the number of PWM pins available as well as the compatibility with encoders and voltage levels.
 \noindent
 \subsection*{DC Motor}
 Your motor is preferred to work with voltages between 6V and 12V and something between 150 RPM and 800 RPM. \textbf{Your motor needs to have an encoder attached}. It would be preferred to use DC-geared motors instead of those without a gearbox. All the motors in the references below have an encoder already mounted.
@@ -88,7 +95,7 @@ In order to control the motor, you will need a H bridge. As long as the motor wi
 \end{itemize}
 \noindent
 \subsection*{Power Source}
-You will need a power source for your motor (the Arduino board would/could be powered by a USB cable connected to your computer). You could have a LiPo battery to power everything, but at some point, you will probably need a charger for that. I would recommend a power supply with an AC to DC transformer. If you are considering a LiPo battery, make sure to match its voltage so that you don't exceed the motor's maximum allowed voltage. For 6V DC motors, a 2S battery (2x4.2V = 8.4V) should work. For a 12V DC motor, there will be needed a 3S battery (3x4.2V = 12.6V). The power supply should have at least a 2A output. That green plug in the option below is also a good call. It will help to keep things safe. If you want to buy the plug and the power supply separately just make sure that the size of the plug from power supply matches the input of the plug.
+You will need a power source for your motor (the Arduino board would/could be powered by a USB cable connected to your computer). You could have a LiPo battery to power everything, but at some point, you will probably need a charger for that. I would recommend a power supply with an AC to DC transformer. If you are considering a LiPo battery, make sure to match its voltage so that you don't exceed the motor's and microcontroller's maximum allowed voltage. For 6V DC motors, a 2S battery (2x4.2V = 8.4V) should work. For a 12V DC motor, there will be needed a 3S battery (3x4.2V = 12.6V). The microcontroller usually is powered with 5V by using a USB cable and not directly from the battery. The power supply should have at least a 2A output. That green plug in the option below is also a good call. It will help to keep things safe. If you want to buy the plug and the power supply separately just make sure that the size of the plug from power supply matches the input of the plug.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt plus 1pt}
@@ -96,7 +103,7 @@ You will need a power source for your motor (the Arduino board would/could be po
 \end{itemize}
 \noindent
 \subsection*{Other Parts}
-I would recommend a screwdriver set if you don't have one. It will be very helpful. The screws in the H bridge are very small, so a normal screwdriver might not work. You can look for some cheap options. I would also recommend a multimeter. Even the most simple one you can find would work for this project. A multimeter is very useful for troubleshooting.
+I would recommend a screwdriver set if you don't have one. It will be very helpful. The screws in the H bridge are very small, so a normal screwdriver may not work. You can look for some cheap options. I would also recommend a multimeter. Even the most simple one you can find would work for this project. A multimeter is very useful for troubleshooting.
 \begin{itemize}
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt plus 1pt}
@@ -109,8 +116,8 @@ I would recommend a screwdriver set if you don't have one. It will be very helpf
 	\setlength{\parskip}{0pt}
 	\setlength{\itemsep}{0pt plus 1pt}
 	\item Purchase materials listed above;
-	\item \href{https://www.arduino.cc/en/software}{Download Arduino IDE Software;}
-	\item Connect Arduino via USB cable to the computer with the correct software;
+	\item \href{https://www.arduino.cc/en/software}{Download Arduino IDE Software or your preferred microcontroller programming software};
+	\item Connect the microcontroller via USB cable to the computer with the correct software;
 	\item Use the guide listed in the references to get connected and get started with the Arduino software;
 \end{itemize}
 
