@@ -1,65 +1,37 @@
-\input{../common/notes_presentation.tex}
-% !TEX root = Lecture01.tex
-\usepackage{pgfpages}
-\usepackage[absolute,overlay]{textpos}
-
-\usetikzlibrary{calc}
-\usetikzlibrary{arrows.meta, positioning}
-
-% For printing purposes, 2 slides per page with borders
-\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
-\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
-\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
-
-% Title Page Information
-\title[AERSP304]{Introduction to Dynamics and Control}
-\subtitle{AERSP 304 - Dynamics and Control of \\ Aerospace Systems}
-\author[V. T. Valente]{V.T. Valente}
-\institute[Penn State University]{Penn State University}
-\date{January 12, 2026}
-
-\setlength{\itemsep}{0.0cm}
-\setlength{\parsep}{0cm}
-
-\begin{document}
-{
-%\setbeamertemplate{footline}[text line]{\parbox{\linewidth}{\vspace*{-8pt}Some material in this presentation has been adapted from slides developed by Dr. Joe Horn.}}
-\frame{\titlepage}
+\DocumentMetadata{
+ lang=en,
+ pdfversion=2.0,
+ pdfstandard=ua-2,
+ %pdfstandard=a-4f, % needs to be remove so Canvas Ally accepts title
+ tagging=on,
+ tagging-setup={math/setup=mathml-SE},
+ debug={xmp-export}
 }
 
-\small
+% !TEX root = Lecture01.tex
+\documentclass[frame-title-arg,aspect-ratio=4:3]{ltx-talk}
 
-% Course Information Slide
-\begin{frame}{Course Information}
+\input{../common/notesPresentation.tex}
+
+\printnotestrue % set to true to print notes in red,
+% \printnotesfalse % set to false to hide notes (white on white paper)
+
+% ======= INIT =========
+\begin{document}
+
+\section{Introduction}
+\begin{frame}{}
     \begin{center}
-        \textbf{AERSP304 Dynamics and Control of Aerospace Systems} \\
-        Section 002
+      \huge Introduction to Dynamics and Control\\
+      \normalsize AERSP 304 - Dynamics and Control of Aerospace Systems\\
+      \vspace{1cm}
+      \normalsize V.T. Valente\\
+      \vspace{0.5cm}
+      \small Penn State University\\
+      \vspace{0.5cm}
+      \normalsize January 12, 2026
     \end{center}
-    \vspace{0.5cm}
-    \textbf{Instructor:} Prof. Vitor Valente \\
-    \textbf{Email:} vitor.valente@psu.edu \\
-    \textbf{Office:} 473N ECoRE \\
-    \textbf{Office Hours:} TR 10:30 AM - 11:30 AM or by appointment \\
-    \textbf{Textbook:} N. Nise, “Control System Engineering,” John Wiley \& Sons, 2019 \\
-    \vspace{1cm}
-    \textbf{Lectures:} \\
-    \begin{itemize}
-        \setlength{\itemsep}{0.0cm}
-        \setlength{\parsep}{0cm}
-        \item Location: 102 ECoRE Building \\
-        \item Meeting Time: MWF 10:10 AM – 11:00 AM \\
-    \end{itemize}
 \end{frame}
-
-% \begin{frame}
-%     \begin{figure}[h!]
-%         \centering
-%         \includegraphics[width=1.0\textwidth]{images/defense_inc_pes_opt_thumbnail.png}
-%         \end{figure}
-%     \href{run:/Applications/VLC.app Lecture01.mp4}{Video}
-% \end{frame}
 
 \begin{frame}{Goals for Today}
     \begin{itemize}
@@ -68,7 +40,28 @@
     \end{itemize}
 \end{frame}
 
-% Goals Slide
+\section{Course Overview}
+\begin{frame}{Course Information}
+  \begin{center}
+      \large AERSP304 Dynamics and Control of Aerospace Systems \\
+      \large Section 002
+  \end{center}
+  \vspace{0.5cm}
+  \textbf{Instructor:} Prof. Vitor Valente \\
+  \textbf{Email:} vitor.valente@psu.edu \\
+  \textbf{Office:} 473N ECoRE \\
+  \textbf{Office Hours:} TR 10:30 AM - 11:30 AM or by appointment \\
+  \textbf{Textbook:} N. Nise, “Control System Engineering,” John Wiley \& Sons, 2019 \\
+  \vspace{1cm}
+  \textbf{Lectures:} \\
+  \begin{itemize}
+      \setlength{\itemsep}{0.0cm}
+      \setlength{\parsep}{0cm}
+      \item Location: 102 ECoRE Building \\
+      \item Meeting Time: MWF 10:10 AM – 11:00 AM \\
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{Goals for the Course}
     \begin{itemize}
         \item Bridge the gap between mathematical theory and application to real engineering systems
@@ -78,15 +71,19 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Goals for the Course}
-    \begin{figure}[h!]
+\begin{frame}{}
+
+    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.75\textwidth]{images/spacex.png}
+        \includegraphics[width=0.75\textwidth,alt={SpaceX}]{images/spacex.png}
     \end{figure}
+    \tagstructend
+
     {
-    \vspace{-0.25cm}
+    \vspace{0.25cm}
     \fontsize{4}{6}\selectfont
-    \hspace{1.8cm} https://www.marketwatch.com/story/space-stocks-rise-after-spacex-captures-booster-in-fifth-starship-flight-test-4946087d
+    \hspace{2.0cm} https://www.marketwatch.com/story/space-stocks-rise-after-spacex-captures-booster-in-fifth-starship-flight-test-4946087d
     }
 \end{frame}
 
@@ -121,11 +118,17 @@
     \end{enumerate}
 \end{frame}
 
+\subsection{Assignments}
 \begin{frame}{Assignments: Summary}
-    \begin{figure}[h!]
+
+    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=1.0\textwidth]{images/assignments.png}
+        \includegraphics[width=0.9\textwidth,alt={Assignments}]{images/assignments.png}
     \end{figure}
+    \tagstructend
+
+    \vspace{1cm}
     \begin{itemize}
         \item GradeScope
     \end{itemize}
@@ -140,6 +143,7 @@
         \item Conceptual understanding rather than lengthy derivations
         \item No make-up quizzes; lowest score is dropped
     \end{itemize}
+    \vspace{0.5cm}
     \textbf{In-Class Homework Quizzes:}
     \begin{itemize}
         \setlength{\itemsep}{0.0cm}
@@ -149,6 +153,7 @@
         \item One problem from the HW set
         \item No make-up quizzes; lowest score is dropped
     \end{itemize}
+    \vspace{0.5cm}
     Solutions to HW will be posted after in-class quiz
 \end{frame}
 
@@ -178,16 +183,21 @@
         \item \textbf{Simulation}: Three MATLAB projects aligned with modeling, analysis, and control modules.
         \item \textbf{Funduino}: One MATLAB project plus two hardware-focused projects involving system identification and control.
     \end{itemize}
-    \vspace{-0.5cm}
-    \begin{figure}[h!]
+
+    \vspace{0.15cm}
+
+    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.35\textwidth]{images/funduino.png}
+        \includegraphics[width=0.45\textwidth,alt={Funduino Project}]{images/funduino.png}
     \end{figure}
+    \tagstructend
+
     {
-    \vspace{-0.5cm}
-    \fontsize{4}{6}\selectfont
-    {\hspace{3.5cm}Students Funduino Project presentation.}
+      \vspace{-0.2cm}
+      \hspace{3.5cm} \fontsize{4}{6}\selectfont{Students Funduino Project presentation.}
     }
+
 \end{frame}
 
 \begin{frame}{Funduino Option}
@@ -200,8 +210,7 @@
             \item Controller design and performance evaluation
         \end{itemize}
         \item Emphasis on practical skills in data acquisition, signal processing, and real-time control
-        \item Midterm report and final report
-        \item Demonstrations
+        \item Demonstrations, midterm report and final report
         \item Student can earn 2\% bonus on final grade
     \end{itemize}
     Students are advised to commit early or switch tracks before deadline (due date for 2nd Matlab Project).
@@ -219,86 +228,155 @@
 
 \begin{frame}
     \centering
-    \Huge Introduction to Dynamics and Control
+    \huge Introduction to Dynamics and Control
 \end{frame}
 
-\begin{frame}[t]{Dynamics and Control}
-    Model: set of dynamic equations that describe the behavior of a (process) system \\
-    \begin{itemize}
-        \setlength{\itemsep}{0.0cm}
-        \setlength{\parsep}{0cm}
-        \item Physics based models: derived from first principles (e.g., Newton’s laws, conservation of mass/energy)
-        \item Data driven models: derived from experimental data (e.g., system identification)
-    \end{itemize}
-    Feedback control: use of measurements of system output to influence system input \\
-    \vspace{0.25cm}
-    Often including assumptions to simplify analysis and design
+\section{Dynamics and Control}
+\begin{frame}{Dynamics and Control}
+
+    \textbf{What is a model?}\\
+    \begin{mynotes}
+     It is a set of dynamic equations that describe the behavior of a (process/plant) system. \par
+     \ifprintnotes
+      \begin{itemize}
+          \item Physics based models: derived from first principles (e.g., Newton’s laws, conservation of mass/energy)
+          \item Data driven models: derived from experimental data (e.g., system identification)
+      \end{itemize}
+      \else
+        \vspace{2.0cm}
+      \fi
+    \end{mynotes}
+
+    \textbf{What is feedback control?}\\
+    \begin{mynotes}
+      Feedback control is the use of measurements of system output to influence system inputs in order to achieve desired performance. \par
+      \vspace{0.5cm}
+      \ifprintnotes
+
+      \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.65\textwidth,alt={Example Temperature Control}]{images/thermostat.png}
+      \end{figure}
+      \tagstructend
+      \else
+      \vspace{2.0cm}
+      \fi
+      \vspace{-1.0cm}
+    \end{mynotes}
 \end{frame}
 
-\begin{frame}[t]{Dynamics of Mechanical Systems}
+\begin{frame}{Dynamics of Mechanical Systems}
     Elements: Mass, Inertia, Springs, Dampers, Forces, Torques \\
-    \vspace{0.5cm}
-    Translational Motion:
+    \vspace{0.25cm}
+    \textbf{Translational Motion:}
     \begin{itemize}
-        \item Newton’s Second Law: \( F = ma \)
+        \item Newton’s Second Law:
+        \[
+        F = ma
+        \]
         \item E.g.: Cruise Control
     \end{itemize}
     \vspace{0.25cm}
-    Rotational Motion:
+    \textbf{Rotational Motion:}
     \begin{itemize}
-        \item Newton’s Second Law: \( M = I\alpha \)
+        \item Newton’s Second Law:
+        \[
+        M = I\alpha
+        \]
         \item E.g.: Satellite Attitude Control, Read/Write Disk Drive, Pendulum
     \end{itemize}
-    Combined Rotation and Translation:
+    \vspace{0.25cm}
+    \textbf{Combined Rotation and Translation:}
     \begin{itemize}
         \item E.g.: Pendulum on a Moving Cart
     \end{itemize}
 \end{frame}
 
-\begin{frame}[t]{Dynamics of Electric Circuits}
+\begin{frame}{Dynamics of Electric Circuits}
     Circuit elements: Resistor, Capacitor, Inductor, Voltage and Current Sources, Operational Amplifiers \\
-    \vspace{0.5cm}
+    \vspace{0.25cm}
     \textbf{Circuit Analysis:}
     \begin{itemize}
-        \item Governing equations: Kirchhoff’s Current and Voltage Laws
+        \item Kirchhoff’s Current and Voltage Laws
         \item E.g.: RLC, Integrator
     \end{itemize}
-    \vspace{1cm}
+    \vspace{0.25cm}
     Electric systems are often combined with mechanical systems \\
     \begin{itemize}
         \item E.g.: DC Motor, Loudspeaker
     \end{itemize}
 \end{frame}
 
-\begin{frame}[t]{Dynamics of Other Systems}
+\begin{frame}{Dynamics of Other Systems}
     \textbf{Thermal Systems:}
     \begin{itemize}
-        \item Governing equations: Conservation of Energy
+        \item Conservation of Energy
         \item E.g.: Temperature Control of a Heated Room
     \end{itemize}
     \textbf{Hydraulic Systems:}
     \begin{itemize}
-        \item Governing equations: Continuity
+        \item Continuity
         \item E.g.: Water Level on a Tank, Hydraulic Actuator
     \end{itemize}
+
+    \begin{mynotes}
+
+    \ifprintnotes
+
+      \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+      \begin{figure}[H]
+          \centering
+          \includegraphics[width=0.45\textwidth,alt={Example Tank}]{images/tank.png}
+      \end{figure}
+      \tagstructend
+    \else
+        \vspace{2.0cm}
+    \fi
+
+      % add equation of the tank height dynamics
+      \[
+      \frac{dh(t)}{dt} = \frac{1}{\rho A} (w_{in} - w_{out} ), \quad h = \frac{m}{\rho A}
+      \]
+    \end{mynotes}
+    \vspace{-0.5cm}
 \end{frame}
 
-\begin{frame}[t]{Force-Voltage Analogy for Dynamic Systems}
+\begin{frame}{Force-Voltage Analogy for Dynamic Systems}
+    \vspace{0pt}
     Mathematical equations for different physical systems can be made equivalent using analogies \\
     \vspace{0.5cm}
-    \begin{figure}[h!]
+
+    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+    \begin{figure}[H]
         \centering
-        \includegraphics[width=0.25\textwidth]{images/mechanical.png}
+        \includegraphics[width=0.25\textwidth,alt={Mechanical System}]{images/mechanical.png}
         \hspace{1cm}
-        \includegraphics[width=0.5\textwidth]{images/electrical.png}
+        \includegraphics[width=0.5\textwidth,alt={Electrical System}]{images/electrical.png}
     \end{figure}
+    \tagstructend
+
+    \begin{mynotes}
+      % add equation of the mechanical system
+      \[
+      M\frac{d^2x(t)}{dt^2} + B\frac{dx(t)}{dt} + Kx(t) = F(t)
+      \]
+
+      % add equation of the electrical system
+      \[
+      L\frac{d^2q(t)}{dt^2} + R\frac{dq(t)}{dt} + \frac{1}{C}q(t) = V(t)
+      \]
+
+      Force <--> Voltage, Mass <--> Inductance, Friction <--> Resistance, Spring Constant <--> Reciprocal of Capacitance, Displacement <--> Charge, Velocity <--> Current
+    \end{mynotes}
+    \vspace{-0.5cm}
 \end{frame}
 
 % Translational Mechanical System	Electrical System
 % Force(F)	Voltage(V)
 % Mass(M)	Inductance(L)
 % Frictional Coefficient(B)	Resistance(R)
-% Spring Constant(K)	Reciprocal of Capacitance (1c)
+% Spring Constant(K)	Reciprocal of Capacitance (1/C)
 % Displacement(x)	Charge(q)
 % Velocity(v)	Current(i)
 

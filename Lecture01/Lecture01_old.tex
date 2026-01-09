@@ -1,0 +1,327 @@
+\input{../common/notes_presentation.tex}
+% !TEX root = Lecture01.tex
+\usepackage{pgfpages}
+\usepackage[absolute,overlay]{textpos}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta, positioning}
+
+% For printing purposes, 2 slides per page with borders
+\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+
+% Title Page Information
+\title[AERSP304]{Introduction to Dynamics and Control}
+\subtitle{AERSP 304 - Dynamics and Control of \\ Aerospace Systems}
+\author[V. T. Valente]{V.T. Valente}
+\institute[Penn State University]{Penn State University}
+\date{January 12, 2026}
+
+\setlength{\itemsep}{0.0cm}
+\setlength{\parsep}{0cm}
+
+\hypersetup{
+  pdftitle={Introduction to Dynamics and Control - AERSP304},
+  pdfauthor={V. T. Valente},
+  pdfsubject={Dynamics and Control of Aerospace Systems},
+  pdfkeywords={Dynamics, Control, Aerospace Systems, AERSP304},
+  pdfdisplaydoctitle=true
+}
+
+\begin{document}
+{
+%\setbeamertemplate{footline}[text line]{\parbox{\linewidth}{\vspace*{-8pt}Some material in this presentation has been adapted from slides developed by Dr. Joe Horn.}}
+\frame{\titlepage}
+}
+
+\small
+
+% Course Information Slide
+\begin{frame}{Course Information}
+    \begin{center}
+        \textbf{AERSP304 Dynamics and Control of Aerospace Systems} \\
+        Section 002
+    \end{center}
+    \vspace{0.5cm}
+    \textbf{Instructor:} Prof. Vitor Valente \\
+    \textbf{Email:} vitor.valente@psu.edu \\
+    \textbf{Office:} 473N ECoRE \\
+    \textbf{Office Hours:} TR 10:30 AM - 11:30 AM or by appointment \\
+    \textbf{Textbook:} N. Nise, “Control System Engineering,” John Wiley \& Sons, 2019 \\
+    \vspace{1cm}
+    \textbf{Lectures:} \\
+    \begin{itemize}
+        \setlength{\itemsep}{0.0cm}
+        \setlength{\parsep}{0cm}
+        \item Location: 102 ECoRE Building \\
+        \item Meeting Time: MWF 10:10 AM – 11:00 AM \\
+    \end{itemize}
+\end{frame}
+
+% \begin{frame}
+%     \begin{figure}[h!]
+%         \centering
+%         \includegraphics[width=1.0\textwidth]{images/defense_inc_pes_opt_thumbnail.png}
+%         \end{figure}
+%     \href{run:/Applications/VLC.app Lecture01.mp4}{Video}
+% \end{frame}
+
+\begin{frame}{Goals for Today}
+    \begin{itemize}
+        \item Review Syllabus for SP26
+        \item Introduction of Dynamics and Control
+    \end{itemize}
+\end{frame}
+
+% Goals Slide
+\begin{frame}{Goals for the Course}
+    \begin{itemize}
+        \item Bridge the gap between mathematical theory and application to real engineering systems
+        \item Develop systematic methods for modeling complex dynamical systems with single and multiple degrees of freedom
+        \item Learn how to approximate complex engineering system with linear ordinary differential equations
+        \item Integrate concepts from dynamics, linear algebra, differential equations, and control theory
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Goals for the Course}
+
+    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth,alt={SpaceX}]{images/spacex.png}
+    \end{figure}
+    \tagstructend
+
+    {
+    \vspace{-0.25cm}
+    \fontsize{4}{6}\selectfont
+    \hspace{1.8cm} https://www.marketwatch.com/story/space-stocks-rise-after-spacex-captures-booster-in-fifth-starship-flight-test-4946087d
+    }
+\end{frame}
+
+% \begin{frame}{Another Example}
+%     \begin{itemize}
+%         \item Humans and other animals constantly perform feedback control in normal activity
+%         \item Humans are “inverted pendulums”: we cannot stand up without subconsciously performing feedback control
+%         \begin{itemize}
+%             \item Sensor: Inner ear (vestibular system) and vision
+%             \item Actuators: Muscles
+%             \item Controller: Cerebellum (brain part that controls coordination and balance)
+%         \end{itemize}
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}{Overall Course Structure}
+    \begin{itemize}
+        \item Classes meet in-person on scheduled times
+        \item Lectures may be conducted remotely (recorded and made available)
+        \item All lectures are recorded via Zoom and available on CANVAS Media Gallery
+        \item Annotated lecture slides and supplementary materials are provided on CANVAS
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Overall Course Structure Continued}
+    The course follows a four-stage progression:
+    \begin{enumerate}
+        \item Modeling
+        \item Stability and Performance Analysis
+        \item Analysis and Control Design in Time Domain
+        \item Control Design in Frequency Domain
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Assignments: Summary}
+
+    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\textwidth]{images/assignments.png}
+    \end{figure}
+    \tagstructend
+
+    \begin{itemize}
+        \item GradeScope
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Assignments - Quizzes}
+    \textbf{Short Quizzes:}
+    \begin{itemize}
+        \setlength{\itemsep}{0.0cm}
+        \setlength{\parsep}{0cm}
+        \item Every Thursday, closed book
+        \item Conceptual understanding rather than lengthy derivations
+        \item No make-up quizzes; lowest score is dropped
+    \end{itemize}
+    \textbf{In-Class Homework Quizzes:}
+    \begin{itemize}
+        \setlength{\itemsep}{0.0cm}
+        \setlength{\parsep}{0cm}
+        \item See schedule in Syllabus, closed-book
+        \item Not collected or graded
+        \item One problem from the HW set
+        \item No make-up quizzes; lowest score is dropped
+    \end{itemize}
+    Solutions to HW will be posted after in-class quiz
+\end{frame}
+
+\begin{frame}{Assignments - Exams}
+    \textbf{Exams:}
+    \begin{itemize}
+        \setlength{\itemsep}{0.0cm}
+        \setlength{\parsep}{0cm}
+        \item 2 Midterms (Feb 13 and Mar 31) and 1 Final Exam (TBD)
+        \item Exam problems are closely aligned with homework problems
+        \item No practice exams will be provided
+        \item One paper sheet with handwritten notes allowed per exam
+        \begin{itemize}
+            \item No problem solutions
+        \end{itemize}
+        \item Make-up exams are available for legitimate reasons only and need to be scheduled in advance
+        \item Highest score gets 2\% additional weight on final grade
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Assignments - Projects}
+    \small
+    Students select one of two project tracks, working in groups of up to three:
+    \begin{itemize}
+        \setlength{\itemsep}{0.0cm}
+        \setlength{\parsep}{0cm}
+        \item \textbf{Simulation}: Three MATLAB projects aligned with modeling, analysis, and control modules.
+        \item \textbf{Funduino}: One MATLAB project plus two hardware-focused projects involving system identification and control.
+    \end{itemize}
+    \vspace{-0.5cm}
+
+    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.35\textwidth]{images/funduino.png}
+    \end{figure}
+    \tagstructend
+    {
+    \vspace{-0.5cm}
+    \fontsize{4}{6}\selectfont
+    {\hspace{3.5cm}Students Funduino Project presentation.}
+    }
+\end{frame}
+
+\begin{frame}{Funduino Option}
+    \small
+    \begin{itemize}
+        \item Use of Arduino-based hardware for hands on experience with real-time control systems
+        \item Project includes:
+        \begin{itemize}
+            \item Modeling actuator using experimental data
+            \item Controller design and performance evaluation
+        \end{itemize}
+        \item Emphasis on practical skills in data acquisition, signal processing, and real-time control
+        \item Midterm report and final report
+        \item Demonstrations
+        \item Student can earn 2\% bonus on final grade
+    \end{itemize}
+    Students are advised to commit early or switch tracks before deadline (due date for 2nd Matlab Project).
+\end{frame}
+
+% \begin{frame}{How to Succeed in this Course?}
+%     \begin{itemize}
+%         \item Keep up with the class schedule
+%         \item Do not miss more than one Quiz
+%         \item Do not miss more than one HW Quiz
+%         \item Solve the homework problems
+%         \item Take advantage of opportunities to communicate with instructor and classmates
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}
+    \centering
+    \Huge Introduction to Dynamics and Control
+\end{frame}
+
+\begin{frame}[t]{Dynamics and Control}
+    Model: set of dynamic equations that describe the behavior of a (process) system \\
+    \begin{itemize}
+        \setlength{\itemsep}{0.0cm}
+        \setlength{\parsep}{0cm}
+        \item Physics based models: derived from first principles (e.g., Newton’s laws, conservation of mass/energy)
+        \item Data driven models: derived from experimental data (e.g., system identification)
+    \end{itemize}
+    Feedback control: use of measurements of system output to influence system input \\
+    \vspace{0.25cm}
+    Often including assumptions to simplify analysis and design
+\end{frame}
+
+\begin{frame}[t]{Dynamics of Mechanical Systems}
+    Elements: Mass, Inertia, Springs, Dampers, Forces, Torques \\
+    \vspace{0.5cm}
+    Translational Motion:
+    \begin{itemize}
+        \item Newton’s Second Law: $F = ma$
+        \item E.g.: Cruise Control
+    \end{itemize}
+    \vspace{0.25cm}
+    Rotational Motion:
+    \begin{itemize}
+        \item Newton’s Second Law: $M = I\alpha$
+        \item E.g.: Satellite Attitude Control, Read/Write Disk Drive, Pendulum
+    \end{itemize}
+    Combined Rotation and Translation:
+    \begin{itemize}
+        \item E.g.: Pendulum on a Moving Cart
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Dynamics of Electric Circuits}
+    Circuit elements: Resistor, Capacitor, Inductor, Voltage and Current Sources, Operational Amplifiers \\
+    \vspace{0.5cm}
+    \textbf{Circuit Analysis:}
+    \begin{itemize}
+        \item Governing equations: Kirchhoff’s Current and Voltage Laws
+        \item E.g.: RLC, Integrator
+    \end{itemize}
+    \vspace{1cm}
+    Electric systems are often combined with mechanical systems \\
+    \begin{itemize}
+        \item E.g.: DC Motor, Loudspeaker
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Dynamics of Other Systems}
+    \textbf{Thermal Systems:}
+    \begin{itemize}
+        \item Governing equations: Conservation of Energy
+        \item E.g.: Temperature Control of a Heated Room
+    \end{itemize}
+    \textbf{Hydraulic Systems:}
+    \begin{itemize}
+        \item Governing equations: Continuity
+        \item E.g.: Water Level on a Tank, Hydraulic Actuator
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Force-Voltage Analogy for Dynamic Systems}
+    Mathematical equations for different physical systems can be made equivalent using analogies \\
+    \vspace{0.5cm}
+
+    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.25\textwidth]{images/mechanical.png}
+        \hspace{1cm}
+        \includegraphics[width=0.5\textwidth]{images/electrical.png}
+    \end{figure}
+    \tagstructend
+\end{frame}
+
+% Translational Mechanical System	Electrical System
+% Force(F)	Voltage(V)
+% Mass(M)	Inductance(L)
+% Frictional Coefficient(B)	Resistance(R)
+% Spring Constant(K)	Reciprocal of Capacitance (1c)
+% Displacement(x)	Charge(q)
+% Velocity(v)	Current(i)
+
+\end{document}

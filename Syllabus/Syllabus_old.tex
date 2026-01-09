@@ -1,0 +1,245 @@
+\input{../common/notes_preamble.tex}
+% !TEX root = Syllabus.tex
+
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+\usepackage{titling}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry} % Adjust the margin as needed
+\pagenumbering{gobble}
+
+\usepackage{titlesec}
+\titleformat{\section}
+    {\color{black}\normalfont\Large\bfseries}
+    {\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{0cm}{1em}
+
+\title{AERSP 304 - Dynamics and Control of \\ Aerospace Systems, Section 002 \\ {\fontsize{14pt}{16pt}\selectfont SP26, MWF 10:10AM-11:00AM, ECoRE Bldg 102}}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-3cm}
+% Start here
+% Prevent word splitting (hyphenation) and penalize it if it occurs
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\sloppy
+
+\subsection*{Instructor Information}
+Dr. Vitor T. Valente \\
+Office: 473N ECoRE Building \\
+Email: vitor.valente@psu.edu \\
+Office hours: \\
+\indent TR 10:30AM-11:30AM \\
+\indent or by appointment
+
+\subsection*{TA Information}
+\begin{multicols}{3}
+\noindent Joseph Messner \\
+Email: jem6884@psu.edu \\
+Office hours:  \\
+\indent TBD \\
+
+\columnbreak
+\noindent Zachary Kemper \\
+Email: zmk5164@psu.edu \\
+Office hours:  \\
+\indent TBD \\
+
+\columnbreak
+\noindent Guowei Zhang \\
+Email: gvz5125@psu.edu \\
+Office hours:  \\
+\indent TBD \\
+\end{multicols}
+
+\subsection*{LA Information}
+\noindent Erik McCartney \\
+Email: eqm5592@psu.edu \\
+Office hours:  \\
+\indent TBD \\
+
+
+\subsection*{Course Description}
+In various courses prior to AERSP 304, you have learned basic physical laws and analysis topics in many distinct fields, such as statics, dynamics, structures, electrical systems, mechanics of materials. In these courses, you were presented with relatively small-scale, simple versions of problems involving each of these topics by itself. The goal of those courses was to learn the fundamental physics (often called ``first principles'') of each separate topic area. Real-world applications usually requires additional mathematical capabilities to solve, analyze, and otherwise understand the behavior of these models.
+
+In AERSP 304, we will focus on learning analytical and computational techniques for solving and/or understanding mathematical models of engineering systems with special emphasis on multiple degrees of freedom systems. Along the way, you will acquire crucial insight into the theory and practice of designing and/or analyzing the kinds of complex engineering systems found throughout aerospace engineering practice.
+
+\subsection*{Objectives}
+By the end of this course students will be able to:
+\begin{enumerate}
+    \setlength{\itemsep}{0pt}
+    \item Develop models for single- and multiple degrees-of-freedom systems.
+    \item Learn how to approximate complex engineering system with linear ordinary differential equations.
+    \item Solve, analyze, and interpret mathematical models of engineering systems, especially models based on linear, time-invariant, ordinary differential equations.
+    \item Analyze the stability and response of simple linear feedback control systems.
+    \item Get exposed to scientific computing applications to engineering system analysis.
+\end{enumerate}
+
+\subsection*{Prerequisites}
+Enforced prerequisite at enrollment:
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \item AERSP313
+    \item EMCH212
+\end{itemize}
+
+\subsection*{Course bibliography}
+Recommended textbooks and references:
+\begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \item N. Nise, ``Control System Engineering,'' John Wiley \& Sons, 2019. (\textbf{Textbook})\\
+This is a required text for this class and is available at University book store. You can buy $7^{th}$ or $8^{th}$ edition of the book and you may want to check the price at online vendors before purchasing it at bookstore.
+    \item K. Ogata, `` Modern Control Engineering,'' Pearson, 2010.
+    \item  S. S. Rao,``Mechanical Vibrations,'' Prentice Hall, 2017.
+    \item  B. T. Kulakowski, J. F. Gardner, J. L. Shearer, ``Dynamical Modeling and Control of Engineering Systems,'' Cambridge University Press, 2007.
+\end{itemize}
+
+\subsection*{Course Structure}
+
+The class will meet in-person on scheduled times but there may be times when lectures will be conducted remotely (a recording will be provided ahead of class time). Every class lecture will be recorded through Zoom and lecture recordings will be available on CANVAS through Media Gallery.
+
+How much and how well you learn is ultimately up to you. You will succeed if you are diligent about keeping up with the class schedule and if you take advantage of opportunities to communicate with me as well as with your fellow students.
+
+\subsubsection*{Detailed Course Content}
+The content is subjected to minor changes.
+\begin{itemize}
+    \setlength{\itemsep}{0.0cm}
+    \setlength{\parsep}{0cm}
+    \item \textbf{Modeling (4 weeks)}
+        \begin{itemize}
+            \setlength{\itemsep}{0.0cm}
+            \setlength{\parsep}{0cm}
+            \item Review: Modeling of aerospace systems
+            \item Time derivative of a vector, Lagrange formulation
+            \item Linearization
+            \item State space formulation
+        \end{itemize}
+
+    \item \textbf{Stability \& Performance  (6 weeks)}
+        \begin{itemize}
+            \setlength{\itemsep}{0.0cm}
+            \setlength{\parsep}{0cm}
+            \item Stability, Routh criterion
+            \item State transition matrix, Forced response
+            \item Transfer functions, Block diagrams
+            \item Transient response, Steady state errors
+        \end{itemize}
+
+    \item  \textbf{Analysis (4 weeks)}
+        \begin{itemize}
+            \setlength{\itemsep}{0.0cm}
+            \setlength{\parsep}{0cm}
+            \item Root locus
+            \item Compensator design
+        \end{itemize}
+
+    \item \textbf{Frequency Response (Time Permitting)}
+        \begin{itemize}
+            \setlength{\itemsep}{0.0cm}
+            \setlength{\parsep}{0cm}
+            \item Bode plots
+            \item Gain margin and phase Margin
+        \end{itemize}
+\end{itemize}
+
+This junior-level core course requires a significant time commitment. System dynamics and analysis builds on prior knowledge from dynamics, differential equations, linear algebra, and computing, which makes the course demanding. Students should be prepared to invest sustained effort. The payoff will be not only a deeper understanding of the subject but also an improved ability to think critically and independently. Instructional support will be provided throughout, provided students engage consistently with the material.
+
+Students are responsible for all information presented in lectures, including assignments, handouts, and announcements. This responsibility applies whether or not a lecture is attended. If a lecture is missed, it is the student’s obligation to obtain all relevant information independently.
+
+\subsection*{Assignments \& Grading}
+The final course grade will be calculated based on the following percentages. The exam
+with your highest score will be weighted with an \textbf{additional 2\%.}
+\begin{table}[h!]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{p{4cm}|p{2cm}|p{2cm}|p{6.5cm}}
+        \hline
+        \textbf{Item} & \textbf{Weight} & \textbf{Weight*} & \textbf{Frequency}  \\\hline
+        \textbf{Short Quizzes: }& 10\% & 10\% & Every week\\
+        \textbf{Homework Quizzes: }& 20\% & 20\%& $\sim$ 6-7 in the semester\\
+        \textbf{Projects:} & 20\% & 7\%& 3 in the semester \\
+        & & & (1 for Funduino option) \\
+        \textbf{Mid-Term 1: }& 16\% & 16\% & Feb 13, 6:15 pm - 7:30 pm \\
+        & & & Location: 26 Hosler\\
+        \textbf{Mid-Term 2:} & 16\% & 16\%& Mar 31, 6:15 pm - 7:30 pm \\
+        & & & Location: 26 Hosler\\
+        \textbf{Final Exam: } & 16\% & 16\% & TBD \\
+        & & & Location: TBD\\
+        \textbf{Funduino*:} & 0\% & 15\%  & 2 in the semester \\
+        \hline
+    \end{tabular}
+\end{table}
+The final letter grades are assigned based on your performance relative to the overall class performance. The letter grade boundaries are assigned to make sure that the class average is close to B or B- boundary.
+
+\subsubsection*{Short Quizzes:} Several short quizzes, each no longer than 10 minutes, will be given during the semester to reinforce understanding of previously covered material and to encourage engagement with course topics. Quizzes will be administered through CANVAS. On average, one quiz will be given per week, although some weeks may have more than one quiz or none at all. At least one lowest quiz score from the semester will be dropped.
+
+\subsubsection*{Homework Quizzes:} Several homework assignments will be given during the semester to support the learning of core concepts. The assigned homework will not be collected or graded. Instead, a 20–30 minute in-class quiz based on the homework will be given on the assignment due date. Students are expected to understand all problems in each homework set. The lowest homework quiz score of the semester will be dropped.
+
+Solutions will be posted on CANVAS and/or discussed in class after the quiz. Quiz questions will be taken directly from the assigned homework problems. For this reason, it is important to work through all assigned problems. System dynamics and analysis requires active problem solving and cannot be learned through reading alone. Students are encouraged to seek help from the instructor, teaching assistants, or classmates when needed.
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{HW Quiz} & \textbf{Date} \\ \hline
+        1 & January 30  \\ \hline
+        2 & February 11  \\ \hline
+        3 & February 25  \\ \hline
+        4 & March 04  \\ \hline
+        5 & March 27  \\ \hline
+        6 & April 10  \\ \hline
+        7 & April 24 \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\subsubsection*{Projects:} Three group projects will be assigned during the semester, involving both analytical and numerical work, including computer programming. Groups may have up to three students, and each group will submit a single project report describing the problem, methodology, results, and discussion. Academic dishonesty, including copying solutions or code, violates the University honor code.
+Late submissions will incur a 30\% penalty per day. Special exceptions will be considered only if the instructor is contacted at least one day before the project due date.
+
+\textit{\textbf{Funduino Project:}} The Funduino project is optional and focuses on engineering applications through extensive coding using an Arduino board. Students will work in groups of up to three and receive a group grade. The project typically consists of two parts, including demonstrations and a midterm and final report, completed with guidance from the instructor and teaching assistants. Students choosing this option must purchase the required hardware.
+Students who select the Funduino option are required to complete only the first MATLAB project. The Funduino project counts for 15\% of the final grade, with an additional 7\% from the first MATLAB project, and may earn up to 2\% extra credit.
+
+\subsubsection*{Exams:} The course includes two midterm exams and one comprehensive final exam. Exam questions may be based on homework and quiz problems, with possible modifications, making a strong understanding of assigned problems essential. All exams are closed-book and closed-notes, and the use of calculators and phones is not permitted. Students may bring one handwritten formula sheet containing only key formulas, not problem solutions, which must be submitted with the exam. Grade disputes for exams or quizzes must be submitted in writing within one week of the return date. Final grading decisions rest with the instructor.
+
+\textit{Make-up exams:} Make-up exams will be granted only for legitimate reasons. Students should notify the instructor at least two days before the scheduled exam when possible, or as soon as circumstances allow. No make-up quizzes will be offered for homework quizzes.
+
+\subsection*{Academic Integrity}
+Penn State and the College of Information Sciences and Technology are committed to maintaining \href{https://undergrad.psu.edu/academic-information/academic-integrity.html}{Penn State's policy on Academic Integrity} in this and all other courses. We take academic integrity matters seriously and expect you to become a partner to the University/College standards of academic excellence.
+
+For more information, please review these policies and procedures: \href{https://student.worldcampus.psu.edu/a-z-index/academic-integrity}{Penn State World Campus Academic Integrity Resources}
+
+While utilizing additional sources outside of this class is encouraged for gaining a better understanding of course concepts, seeking explicit answers for graded assignments from outside sources (e.g. Course Hero, Chegg, tutoring services like tutor.com, etc.) is considered CHEATING and will not be tolerated.  Sanctions range from failure of the assignment or course to dismissal from the University. Additionally, sharing course content without permission is a violation of copyright and may result in university sanctions and/or legal ramifications. Contact your instructor with questions related to this topic.
+
+\subsection*{Use of Generative AI}
+According to Penn State policy (\href{https://undergrad.psu.edu/aappm/G-9-academic-integrity.html}{G-9 Academic Integrity}), an academic integrity violation is “an intentional, unintentional, or attempted violation of course or assessment policies to gain an academic advantage or to advantage or disadvantage another student academically.” Unless your instructor tells you otherwise, you must complete all course work entirely on your own, using only sources that have been permitted by your instructor, and you may not assist other students with papers, quizzes, exams, or other assessments. If your instructor allows you to use ideas, images, or word phrases created by another person (e.g., from Course Hero or Chegg) or by generative technology, such as ChatGPT, you must identify their source. You may not submit false or fabricated information, use the same academic work for credit in multiple courses, or share instructional content. Students with questions about academic integrity and use of AI tools should ask their instructor before submitting work.
+
+Students facing allegations of academic misconduct may not drop/withdraw from the affected course unless they are cleared of wrongdoing (see \href{https://undergrad.psu.edu/aappm/G-9-academic-integrity.html}{G-9 Academic Integrity}). Attempted drops will be prevented or reversed, and students will be expected to complete course work and meet course deadlines. Students who are found responsible for academic integrity violations face academic outcomes, which can be severe, and put themselves at jeopardy for other outcomes which may include ineligibility for Dean’s List, pass/fail elections, and grade forgiveness. Students may also face consequences from their home/major program and/or The Schreyer Honors College.
+
+\subsection*{University Policies}
+Review current information regarding various Penn State policies (such as copyright, counseling, psychological services, disability and military accommodations, discrimination, harassment, emergencies, trade names, etc.) on the \href{https://docs.google.com/document/d/1FIQdII2qw3SJOIgQWTWRByCxSbsnY6DcZA0JHzL4yBk/pub}{University Policies page}.
+
+Penn State takes great pride to foster a diverse and inclusive environment for students, faculty, and staff. Acts of intolerance, discrimination, or harassment due to age, ancestry, color, disability, gender, gender identity, national origin, race, religious belief, sexual orientation, or veteran status are not tolerated and can be reported through Educational Equity via the Report Bias webpage. (http://equity.psu.edu/reportbias/).
+
+\subsection*{Military Accommodations}
+Veterans and/or currently-serving military personnel and/or spouses with unique circumstances (e.g., upcoming deployments, drill/duty requirements, disabilities, VA appointments, etc.) are welcomed and encouraged to communicate these to the instructor - in advance, if possible - in the case that special arrangements need to be made. Please review these Services for Military and Veteran Students.
+
+\subsection*{Disability Accommodation}
+Penn State welcomes students with disabilities into the University’s educational programs. Every Penn State campus has an office for students with disabilities. Student Disability Resources (SDR) website provides contact information for every Penn State campus (http://equity.psu.edu/sdr/disability-coordinator). For further information, please visit Student Disability Resources website (http://equity.psu.edu/sdr/).
+
+In order to receive consideration for reasonable accommodations, you must contact the appropriate disability services office at the campus where you are officially enrolled, participate in an intake interview, and provide documentation: See documentation guidelines (http://equity.psu.edu/sdr/guidelines). If the documentation supports your request for reasonable accommodations, your campus disability services office will provide you with an accommodation letter. Please share this letter with your instructors and discuss the accommodations with them as early as possible. You must follow this process for every semester that you request accommodations.
+
+\subsection*{Counseling and Psychological Services}
+Many students at Penn State face personal challenges or have psychological needs that may interfere with their academic progress, social development, or emotional wellbeing. The university offers a variety of confidential services to help you through difficult times, including individual and group counseling, crisis intervention, consultations, online chats, and mental health screenings. These services are provided by staff who welcome all students and embrace a philosophy respectful of clients’ cultural and religious backgrounds, and sensitive to differences in race, ability, gender identity and sexual orientation.\\
+Counseling and Psychological Services at University Park (CAPS): http://studentaffairs.psu.edu/counseling/, Contact: 814-863-0395\\
+Counseling and Psychological Services at Commonwealth Campuses (https://senate.psu.edu/faculty/counseling-services-at-commonwealth-campuses/)\\
+Penn State Crisis Line (24 hours/7 days/week): 877-229-6400\\
+Crisis Text Line (24 hours/7 days/week): Text LIONS to 741741
+
+\subsection*{Educational Equity and Reporting Bias}
+Penn State takes great pride to foster a diverse and inclusive environment for students, faculty, and staff. Acts of intolerance, discrimination, or harassment due to age, ancestry, color, disability, gender, gender identity, national origin, race, religious belief, sexual orientation, or veteran status are not tolerated and can be reported through Educational Equity via the Report Bias webpage (http://equity.psu.edu/reportbias/).
+
+% End here
+\end{document}

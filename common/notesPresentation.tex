@@ -1,0 +1,70 @@
+% Basic style definitions for lecture notes in presentation mode.
+% Vitor Valente, August 2024
+\usepackage{graphicx}
+\usepackage{amsmath}  % For mathematical symbols
+\usepackage{graphicx} % For including images
+\usepackage{hyperref} % For clickable links
+\usepackage{tikz} % For block diagrams
+\usetikzlibrary{positioning}
+
+\usepackage{ragged2e}
+\apptocmd{\frame}{}{\justifying}{} % Allow optional arguments after frame.
+
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{float}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}
+\usepackage{pgfpages}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{comment}
+\usepackage{unicode-math}
+
+% setting up style
+\EditInstance{header}{std}{
+  print-frame-title = true,
+  color = black,
+}
+
+\EditInstance{frametitle}{header}{
+  font = \bfseries\LARGE,
+}
+
+% for accessibility
+\hypersetup{
+pdftitle={Syllabus: AERSP 304},
+pdfauthor={V.T. Valente},
+pdfkeywords={Syllabus, AERSP304},
+pdfdisplaydoctitle=true
+}
+
+% for printing purposes, 2 slides per page with borders
+\pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
+\pgfpageslogicalpageoptions{1}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{2}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{3}{border code=\pgfusepath{stroke}}
+\pgfpageslogicalpageoptions{4}{border code=\pgfusepath{stroke}}
+
+% suppress page numbers
+\pagenumbering{gobble}
+% black items
+% \AtBeginEnvironment{itemize}{\color{black}}
+% \AtBeginEnvironment{enumerate}{\color{black}}
+
+% define an environment that prints out notes to self in red if \printnotes is true, in white (on white paper,
+% hence invisible) otherwise. Printing notes in white will leave space for student notes...
+\newif\ifprintnotes
+\printnotesfalse % set \printnotestrue to show
+
+\newenvironment{mynotes}
+{
+	\ifprintnotes
+		\color{BrickRed}
+	\else
+		\color{white}
+	\fi
+}
+{
+	\color{black}
+}
