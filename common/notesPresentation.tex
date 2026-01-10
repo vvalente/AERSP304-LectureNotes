@@ -33,9 +33,9 @@
 
 % for accessibility
 \hypersetup{
-pdftitle={Syllabus: AERSP 304},
+pdftitle={AERSP 304 Material},
 pdfauthor={V.T. Valente},
-pdfkeywords={Syllabus, AERSP304},
+pdfkeywords={AERSP304},
 pdfdisplaydoctitle=true
 }
 
@@ -54,17 +54,39 @@ pdfdisplaydoctitle=true
 
 % define an environment that prints out notes to self in red if \printnotes is true, in white (on white paper,
 % hence invisible) otherwise. Printing notes in white will leave space for student notes...
-\newif\ifprintnotes
-\printnotesfalse % set \printnotestrue to show
+\usepackage{environ}
 
-\newenvironment{mynotes}
-{
-	\ifprintnotes
-		\color{BrickRed}
-	\else
-		\color{white}
-	\fi
+\newif\ifprintnotes
+\printnotesfalse % set true to show notes
+
+\newsavebox{\mynotesbox}
+
+\NewEnviron{mynotes}{%
+  % 1) Measure content
+  \sbox{\mynotesbox}{%
+    \begin{minipage}{\linewidth}
+			\color{blue}%
+      \BODY
+    \end{minipage}
+  }%
+  % 2) Output or reserve space
+  \ifprintnotes
+    \usebox{\mynotesbox}%
+  \else
+    \par\noindent\phantom{\usebox{\mynotesbox}}\par
+  \fi
 }
-{
-	\color{black}
+
+\NewEnviron{mynotesfigures}{%
+  \sbox{\mynotesbox}{%
+    \begin{minipage}{\linewidth}
+      \centering
+      \BODY
+    \end{minipage}
+  }%
+  \ifprintnotes
+    \usebox{\mynotesbox}%
+  \else
+    \par\noindent\phantom{\usebox{\mynotesbox}}\par
+  \fi
 }

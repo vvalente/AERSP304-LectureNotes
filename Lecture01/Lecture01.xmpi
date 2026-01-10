@@ -288,13 +288,12 @@
    </dc:creator>
    <dc:title>
     <rdf:Alt>
-     <rdf:li xml:lang="x-default">Syllabus: AERSP 304</rdf:li>
-     <rdf:li xml:lang="en">Syllabus: AERSP 304</rdf:li>
+     <rdf:li xml:lang="x-default">AERSP 304 Material</rdf:li>
+     <rdf:li xml:lang="en">AERSP 304 Material</rdf:li>
     </rdf:Alt>
    </dc:title>
    <dc:subject>
     <rdf:Bag>
-     <rdf:li>Syllabus</rdf:li>
      <rdf:li>AERSP304</rdf:li>
     </rdf:Bag>
    </dc:subject>
@@ -310,17 +309,17 @@
    </dc:language>
    <dc:date>
     <rdf:Seq>
-     <rdf:li>2026-01-09T11:11:41-05:00</rdf:li>
+     <rdf:li>2026-01-09T12:55:52-05:00</rdf:li>
     </rdf:Seq>
    </dc:date>
    <dc:format>application/pdf</dc:format>
    <dc:source>Lecture01.tex</dc:source>
    <xmp:CreatorTool>LaTeX with hyperref</xmp:CreatorTool>
-   <xmp:CreateDate>2026-01-09T11:11:41-05:00</xmp:CreateDate>
-   <xmp:ModifyDate>2026-01-09T11:11:41-05:00</xmp:ModifyDate>
-   <xmp:MetadataDate>2026-01-09T11:11:41-05:00</xmp:MetadataDate>
-   <xmpMM:DocumentID>uuid:b25f1bdc-4006-4af0-8cfc-9d1e4dbd8828</xmpMM:DocumentID>
-   <xmpMM:InstanceID>uuid:f1e42e14-ac0c-4212-85f8-1a68f60e05ee</xmpMM:InstanceID>
+   <xmp:CreateDate>2026-01-09T12:55:52-05:00</xmp:CreateDate>
+   <xmp:ModifyDate>2026-01-09T12:55:52-05:00</xmp:ModifyDate>
+   <xmp:MetadataDate>2026-01-09T12:55:52-05:00</xmp:MetadataDate>
+   <xmpMM:DocumentID>uuid:5793c2c2-6faf-44b5-805c-b9ab662ec5dd</xmpMM:DocumentID>
+   <xmpMM:InstanceID>uuid:9bf56739-879b-4141-8df6-ce4c6631368d</xmpMM:InstanceID>
    <prism:complianceProfile>three</prism:complianceProfile>
    <prism:pageCount>18</prism:pageCount>
   </rdf:Description>

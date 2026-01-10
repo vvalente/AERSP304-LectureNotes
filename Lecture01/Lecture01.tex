@@ -13,8 +13,8 @@
 
 \input{../common/notesPresentation.tex}
 
-\printnotestrue % set to true to print notes in red,
-% \printnotesfalse % set to false to hide notes (white on white paper)
+% \printnotestrue % set to true to print notes in red,
+\printnotesfalse % set to false to hide notes (white on white paper)
 
 % ======= INIT =========
 \begin{document}
@@ -22,43 +22,47 @@
 \section{Introduction}
 \begin{frame}{}
     \begin{center}
-      \huge Introduction to Dynamics and Control\\
-      \normalsize AERSP 304 - Dynamics and Control of Aerospace Systems\\
-      \vspace{1cm}
-      \normalsize V.T. Valente\\
-      \vspace{0.5cm}
-      \small Penn State University\\
-      \vspace{0.5cm}
+      \huge Introduction to Dynamics and Control\par
+      \normalsize AERSP 304 - Dynamics and Control of Aerospace Systems\par
+      \bigskip
+      \bigskip
+      \normalsize V.T. Valente\par
+      \bigskip
+      \small Penn State University\par
+      \bigskip
       \normalsize January 12, 2026
     \end{center}
 \end{frame}
 
 \begin{frame}{Goals for Today}
+
     \begin{itemize}
-        \item Review Syllabus for SP26
-        \item Introduction of Dynamics and Control
+      \item Review the syllabus for Spring 2026
+      \item Introduce the concepts of dynamics and control
     \end{itemize}
+
 \end{frame}
+
 
 \section{Course Overview}
 \begin{frame}{Course Information}
   \begin{center}
-      \large AERSP304 Dynamics and Control of Aerospace Systems \\
+      \large AERSP304 Dynamics and Control of Aerospace Systems \par
       \large Section 002
   \end{center}
   \vspace{0.5cm}
-  \textbf{Instructor:} Prof. Vitor Valente \\
-  \textbf{Email:} vitor.valente@psu.edu \\
-  \textbf{Office:} 473N ECoRE \\
-  \textbf{Office Hours:} TR 10:30 AM - 11:30 AM or by appointment \\
-  \textbf{Textbook:} N. Nise, “Control System Engineering,” John Wiley \& Sons, 2019 \\
-  \vspace{1cm}
-  \textbf{Lectures:} \\
+  \textbf{Instructor:} Prof. Vitor Valente \par
+  \textbf{Email:} vitor.valente@psu.edu \par
+  \textbf{Office:} 473N ECoRE \par
+  \textbf{Office Hours:} TR 10:30 AM - 11:30 AM or by appointment \par
+  \textbf{Textbook:} N. Nise, “Control System Engineering,” John Wiley \& Sons, 2019 \par
+  \bigskip
+  \textbf{Lectures:} \par
   \begin{itemize}
       \setlength{\itemsep}{0.0cm}
       \setlength{\parsep}{0cm}
-      \item Location: 102 ECoRE Building \\
-      \item Meeting Time: MWF 10:10 AM – 11:00 AM \\
+      \item Location: 102 ECoRE Building \par
+      \item Meeting Time: MWF 10:10 AM – 11:00 AM \par
   \end{itemize}
 \end{frame}
 
@@ -121,14 +125,14 @@
 \subsection{Assignments}
 \begin{frame}{Assignments: Summary}
 
-    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
+    \tagstructbegin{tag=Sect}
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\textwidth,alt={Assignments}]{images/assignments.png}
     \end{figure}
     \tagstructend
 
-    \vspace{1cm}
+    \bigskip
     \begin{itemize}
         \item GradeScope
     \end{itemize}
@@ -183,16 +187,13 @@
         \item \textbf{Simulation}: Three MATLAB projects aligned with modeling, analysis, and control modules.
         \item \textbf{Funduino}: One MATLAB project plus two hardware-focused projects involving system identification and control.
     \end{itemize}
+    \medskip
 
-    \vspace{0.15cm}
-
-    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.45\textwidth,alt={Funduino Project}]{images/funduino.png}
     \end{figure}
-    \tagstructend
-
+    \medskip
     {
       \vspace{-0.2cm}
       \hspace{3.5cm} \fontsize{4}{6}\selectfont{Students Funduino Project presentation.}
@@ -216,16 +217,6 @@
     Students are advised to commit early or switch tracks before deadline (due date for 2nd Matlab Project).
 \end{frame}
 
-% \begin{frame}{How to Succeed in this Course?}
-%     \begin{itemize}
-%         \item Keep up with the class schedule
-%         \item Do not miss more than one Quiz
-%         \item Do not miss more than one HW Quiz
-%         \item Solve the homework problems
-%         \item Take advantage of opportunities to communicate with instructor and classmates
-%     \end{itemize}
-% \end{frame}
-
 \begin{frame}
     \centering
     \huge Introduction to Dynamics and Control
@@ -233,143 +224,145 @@
 
 \section{Dynamics and Control}
 \begin{frame}{Dynamics and Control}
-
-    \textbf{What is a model?}\\
+    \bigskip
+    \textbf{What is a model?}\par\medskip
     \begin{mynotes}
-     It is a set of dynamic equations that describe the behavior of a (process/plant) system. \par
-     \ifprintnotes
-      \begin{itemize}
-          \item Physics based models: derived from first principles (e.g., Newton’s laws, conservation of mass/energy)
-          \item Data driven models: derived from experimental data (e.g., system identification)
-      \end{itemize}
-      \else
-        \vspace{2.0cm}
-      \fi
+    It is a set of dynamic equations that describe the behavior of a (process/plant) system.\par
+    \begin{enumerate}
+      \item Physics based models: derived from first principles (e.g., Newton’s laws, conservation of mass/energy)
+      \item Data driven models: derived from experimental data (e.g., system identification)
+    \end{enumerate}
     \end{mynotes}
 
-    \textbf{What is feedback control?}\\
+    \medskip
+    \textbf{What is feedback control?}\par\medskip
     \begin{mynotes}
-      Feedback control is the use of measurements of system output to influence system inputs in order to achieve desired performance. \par
-      \vspace{0.5cm}
-      \ifprintnotes
+    Feedback control is the use of measurements of system output to influence system inputs in order to achieve desired performance.\par\smallskip
 
-      \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
-      \begin{figure}[H]
-          \centering
-          \includegraphics[width=0.65\textwidth,alt={Example Temperature Control}]{images/thermostat.png}
-      \end{figure}
-      \tagstructend
-      \else
-      \vspace{2.0cm}
-      \fi
-      \vspace{-1.0cm}
+    \begin{center}
+    \includegraphics[
+      width=0.65\linewidth,
+      alt={Thermostat feedback control block diagram showing controller, plant, and temperature feedback.}
+    ]{images/thermostat.png}
+    \end{center}
     \end{mynotes}
 \end{frame}
 
 \begin{frame}{Dynamics of Mechanical Systems}
-    Elements: Mass, Inertia, Springs, Dampers, Forces, Torques \\
-    \vspace{0.25cm}
-    \textbf{Translational Motion:}
+    \bigskip
+    Mechanical systems are composed of elements such as mass, inertia, springs, dampers, forces, and torques.
+
+    \medskip
+    \textbf{Translational Motion}\par
     \begin{itemize}
-        \item Newton’s Second Law:
-        \[
+      \item Newton’s second law
+      \[
         F = ma
-        \]
-        \item E.g.: Cruise Control
+      \]
+      \item Example application: Cruise control
     \end{itemize}
-    \vspace{0.25cm}
-    \textbf{Rotational Motion:}
+
+    \medskip
+    \textbf{Rotational Motion}\par
     \begin{itemize}
-        \item Newton’s Second Law:
-        \[
+      \item Newton’s second law for rotation
+      \[
         M = I\alpha
-        \]
-        \item E.g.: Satellite Attitude Control, Read/Write Disk Drive, Pendulum
+      \]
+      \item Example applications: Satellite attitude control, read/write disk drives, pendulums
     \end{itemize}
-    \vspace{0.25cm}
-    \textbf{Combined Rotation and Translation:}
-    \begin{itemize}
-        \item E.g.: Pendulum on a Moving Cart
-    \end{itemize}
+
+    \medskip
+    \textbf{Combined Translation and Rotation}\par
+    An example of a system exhibiting both translational and rotational motion is a pendulum mounted on a moving cart.
+
 \end{frame}
+
 
 \begin{frame}{Dynamics of Electric Circuits}
-    Circuit elements: Resistor, Capacitor, Inductor, Voltage and Current Sources, Operational Amplifiers \\
-    \vspace{0.25cm}
-    \textbf{Circuit Analysis:}
+
+    \bigskip
+    Electric circuits are composed of elements such as resistors, capacitors, inductors, voltage and current sources, and operational amplifiers.
+
+    \medskip
+    \textbf{Circuit Analysis}\par
     \begin{itemize}
-        \item Kirchhoff’s Current and Voltage Laws
-        \item E.g.: RLC, Integrator
+      \item Kirchhoff’s current law and Kirchhoff’s voltage law
+      \item Example systems: RLC circuits, integrators
     \end{itemize}
-    \vspace{0.25cm}
-    Electric systems are often combined with mechanical systems \\
-    \begin{itemize}
-        \item E.g.: DC Motor, Loudspeaker
-    \end{itemize}
+
+    \medskip
+    \textbf{Electromechanical Systems}\par
+    Electric systems are often coupled with mechanical systems, forming electromechanical systems. An example is a DC motor, where electrical energy is converted into mechanical motion.\par
+    \medskip
+
+    \textbf{Thermal Systems}\par
+    Thermal systems involve the transfer of heat within a system. Their dynamics are governed by principles such as conduction, convection, and radiation. An example is the temperature control of a heated room.
+
 \end{frame}
+
 
 \begin{frame}{Dynamics of Other Systems}
-    \textbf{Thermal Systems:}
-    \begin{itemize}
-        \item Conservation of Energy
-        \item E.g.: Temperature Control of a Heated Room
-    \end{itemize}
-    \textbf{Hydraulic Systems:}
-    \begin{itemize}
-        \item Continuity
-        \item E.g.: Water Level on a Tank, Hydraulic Actuator
-    \end{itemize}
+
+
+    \medskip
+    \textbf{Hydraulic Systems}\par
+    Hydraulic systems involve the flow and pressure of fluids within a system. Their dynamics are governed by conservation laws such as mass and energy conservation (continuity equation). An example is the water-level control of a tank system.
 
     \begin{mynotes}
+        \medskip
+        \begin{center}
+        \includegraphics[
+        width=0.45\linewidth,
+        alt={Water tank system illustrating inflow, outflow, and liquid height dynamics}
+        ]{images/tank.png}
+        \end{center}
 
-    \ifprintnotes
-
-      \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
-      \begin{figure}[H]
-          \centering
-          \includegraphics[width=0.45\textwidth,alt={Example Tank}]{images/tank.png}
-      \end{figure}
-      \tagstructend
-    \else
-        \vspace{2.0cm}
-    \fi
-
-      % add equation of the tank height dynamics
-      \[
-      \frac{dh(t)}{dt} = \frac{1}{\rho A} (w_{in} - w_{out} ), \quad h = \frac{m}{\rho A}
-      \]
+        \smallskip
+        \[
+        \frac{dh(t)}{dt} = \frac{1}{\rho A}\bigl(w_{in} - w_{out}\bigr),
+        \qquad
+        h = \frac{m}{\rho A}
+        \]
     \end{mynotes}
-    \vspace{-0.5cm}
 \end{frame}
 
-\begin{frame}{Force-Voltage Analogy for Dynamic Systems}
-    \vspace{0pt}
-    Mathematical equations for different physical systems can be made equivalent using analogies \\
-    \vspace{0.5cm}
+\begin{frame}{Force–Voltage Analogy for Dynamic Systems}
 
-    \tagstructbegin{tag=Sect}%required to ensure correct reading order of contents if the table has any caption
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.25\textwidth,alt={Mechanical System}]{images/mechanical.png}
-        \hspace{1cm}
-        \includegraphics[width=0.5\textwidth,alt={Electrical System}]{images/electrical.png}
-    \end{figure}
-    \tagstructend
+    \bigskip
+    Mathematical equations for different physical systems can be made equivalent using analogies.
+
+    \begin{mynotesfigures}
+    \medskip
+    \begin{center}
+    \includegraphics[
+      width=0.20\linewidth,
+      alt={Mechanical mass–spring–damper system showing mass, spring, damper, and applied force}
+    ]{images/mechanical.png}
+    \hspace{1cm}
+    \includegraphics[
+      width=0.5\linewidth,
+      alt={Electrical RLC circuit with voltage source, resistor, inductor, and capacitor}
+    ]{images/electrical.png}
+    \end{center}
+    \end{mynotesfigures}
 
     \begin{mynotes}
-      % add equation of the mechanical system
-      \[
-      M\frac{d^2x(t)}{dt^2} + B\frac{dx(t)}{dt} + Kx(t) = F(t)
-      \]
+    \medskip
+    The mechanical system dynamics are given by:
+    \[
+    M\frac{d^2x(t)}{dt^2} + B\frac{dx(t)}{dt} + Kx(t) = F(t)
+    \]
 
-      % add equation of the electrical system
-      \[
-      L\frac{d^2q(t)}{dt^2} + R\frac{dq(t)}{dt} + \frac{1}{C}q(t) = V(t)
-      \]
+    \medskip
+    The analogous electrical system dynamics are:
+    \[
+    L\frac{d^2q(t)}{dt^2} + R\frac{dq(t)}{dt} + \frac{1}{C}q(t) = V(t)
+    \]
+    \medskip
 
-      Force <--> Voltage, Mass <--> Inductance, Friction <--> Resistance, Spring Constant <--> Reciprocal of Capacitance, Displacement <--> Charge, Velocity <--> Current
     \end{mynotes}
-    \vspace{-0.5cm}
+
 \end{frame}
 
 % Translational Mechanical System	Electrical System

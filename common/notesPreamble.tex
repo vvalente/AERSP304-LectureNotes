@@ -1,46 +1,68 @@
-% basic style definitions for lecture notes in text mode.
-% based on material from J. W. Langelaan, August 16, 2010
-
-% Vitor T. Valente, August 2024
-\DocumentMetadata{
-  tagging = on,
-  lang = en,
-  pdfstandard = ua-2,
-  pdfstandard = a-4f, % optional archival standard
-  tagging-setup = {math/setup={mathml-AF,mathml-SE},
-                   extra-modules={verbatim-mo},
-                   table/header-rows=1}}
-
-\documentclass[times,12pt,letterpaper]{article}
-
-\usepackage{latexsym}
-\usepackage{fancyhdr}
-\usepackage{amsmath, amsthm}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsxtra}
-\usepackage{graphicx}
-\usepackage{epstopdf}
- \usepackage{subfigure}			% subcaptions for subfigures
- \usepackage{subfigmat}			% matrices of similar subfigures, aka small mulitples
-\usepackage{times}
-\usepackage[small]{caption}
-\usepackage{wrapfig}			% wrap figures/tables in text (i.e., Di Vinci style)
-\usepackage{color}
-\usepackage{ifthen}
-\usepackage{float}
+% Basic style definitions for lecture notes in preamble mode.
+% Vitor Valente, August 2024
 \usepackage{multicol}
 \usepackage[normalem]{ulem}
-\usepackage{titling}
-\usepackage{url}
-\usepackage{hyperref}
-
-
 \usepackage{tikz} % For block diagrams
 \usetikzlibrary{positioning}
-
+\usepackage{titling}
+\usepackage{url}
+\usepackage{float}
+\usepackage[margin=1in]{geometry} % Adjust the margin as needed
+\usepackage[pdfencoding=auto]{hyperref}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{times}
 \usepackage{unicode-math}
+
+% for accessibility
+\hypersetup{
+pdftitle={AERSP 304 Material},
+pdfauthor={V.T. Valente},
+pdfkeywords={AERSP304},
+pdfdisplaydoctitle=true
+}
+
+% suppress page numbers
+\pagenumbering{gobble}
+
+% define an environment that prints out notes to self in red if \printnotes is true, in white (on white paper,
+% hence invisible) otherwise. Printing notes in white will leave space for student notes...
+\usepackage{environ}
+
+\newif\ifprintnotes
+\printnotesfalse % set true to show notes
+
+\newsavebox{\mynotesbox}
+
+\NewEnviron{mynotes}{%
+  % 1) Measure content
+  \sbox{\mynotesbox}{%
+    \begin{minipage}{\linewidth}
+			\color{BrickRed}%
+      \BODY
+    \end{minipage}
+  }%
+  % 2) Output or reserve space
+  \ifprintnotes
+    \par\noindent\usebox{\mynotesbox}\par%
+  \else
+    \par\noindent\phantom{\usebox{\mynotesbox}}\par
+  \fi
+}
+
+\NewEnviron{mynotesfigures}{%
+  \sbox{\mynotesbox}{%
+    \begin{minipage}{\linewidth}
+      \centering
+      \BODY
+    \end{minipage}
+  }%
+  \ifprintnotes
+    \par\noindent\usebox{\mynotesbox}\par%
+  \else
+    \par\noindent\phantom{\usebox{\mynotesbox}}\par
+  \fi
+}
+
 
 \newcommand{\myheading}[1]
 	{\noindent \textbf{#1}}
@@ -54,42 +76,7 @@
 \newcommand{\LAPL}[1]{\mathcal{L}\left\{{#1}\right\}}
 \newcommand{\iLAPL}[1]{\mathcal{L}^{-1}\left\{{#1}\right\}}
 
-\pagestyle{fancy}
-
-\newcommand{\course}[1]{\lhead{\textbf{ \footnotesize{#1}}}}
-\chead{}
-\newcommand{\lecture}[1]{\rhead{\textbf{\footnotesize{#1--\thepage}}}}
-\newcommand{\semester}[1]{\lfoot{\textbf{\footnotesize{#1}}}}
-\cfoot{}
-\rfoot{\textbf{}}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-\newcommand{\printnotes}{\printnotestrue}
-
 % Prevent word splitting (hyphenation) and penalize it if it occurs
 \hyphenpenalty=10000
 \exhyphenpenalty=10000
 \sloppy
-
-% define an environment that prints out notes to self in red if \printnotes is true, in white (on white paper,
-% hence invisible) otherwise. Printing notes in white will leave space for student notes...
-\newif\ifprintnotes
-\newenvironment{mynotes}
-{
-	\ifprintnotes
-		\color{red}
-	\else
-		\color{white}
-	\fi
-}
-{
-	\color{black}
-}
-
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolorPython}{rgb}{0.90,0.95,0.92}
-\definecolor{backcolorMatlab}{rgb}{0.95,0.90,0.92}
-\definecolor{backcolorCpp}{rgb}{0.95,0.95,0.90}
